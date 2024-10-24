@@ -9,33 +9,28 @@
   </head>
   <body>
     <main class="main">
-      <form>
+      <form id="myForm">
         <h2>Datos del Colaborador</h2>
         <label for="nombre">Nombre:</label>
         <input type="text" id="name" name="nombre" /><br /><br />
-
         <label for="identificacion">Identificación:</label>
-        <input type="radio" id="cc" name="identificacion" value="cc" />
+        <input type="checkbox" id="cc" name="identificacion" value="cc" />
         <label for="cc">C.C</label>
-        <input type="radio" id="ti" name="identificacion" value="ti" />
+        <input type="checkbox" id="ti" name="identificacion" value="ti" />
         <label for="ti">TI</label>
-        <input type="text" id="idNumero" name="numero" /><br /><br />
-
-        <label for="area">Área:</label>
-        <input type="text" id="area" name="area" /><br /><br />
+        <input type="text" id="idNumber" name="numero" /><br /><br />
 
         <h2>Características del Equipo</h2>
-        <label for="tipo-equipo">Tipo de Equipo:</label>
-        <!-- <input type="text" id="tipo-equipo" name="tipo-equipo"><br><br> -->
-        <select id="tipo-equipo" name="motivo">
+        <label for="equipmentType">Tipo de Equipo:</label>
+        <select id="equipmentType" name="motivo">
           <option value="monitor">Monitor</option>
           <option value="portatil">Portátil</option>
           <option value="tablet">Tablet</option>
           <option value="cpu">PC de escritorio</option>
           <option value="impresora">Impresora portatil</option></select
         ><br /><br />
-        <label for="motivo">Motivo:</label>
-        <select id="motivo" name="motivo">
+        <label for="reason">Motivo:</label>
+        <select id="reason" name="motivo">
           <option value="asignacion">Asignación</option>
           <option value="devolucion">Devolución</option></select
         ><br /><br />
@@ -169,18 +164,22 @@
         ><br /><br />
 
         <h2>Firma del Colaborador</h2>
-        <label for="firma">Firma:</label>
-        <input type="file" id="firma" name="firma" /><br /><br />
 
-        <label for="nombre-firma">Nombre:</label>
-        <input type="text" id="nombre-firma" name="nombre-firma" /><br /><br />
-
-        <label for="cc-firma">CC:</label>
-        <input type="text" id="cc-firma" name="cc-firma" /><br /><br />
-
+        <label for="signature">Firma:</label>
+        <input
+          type="file"
+          id="signature"
+          name="signature"
+          accept="image/*"
+        /><br /><br />
         <h2>Firma del Área TI</h2>
-        <label for="firma-ti">Firma:</label>
-        <input type="file" id="firma-ti" name="firma-ti" /><br /><br />
+        <label for="tisignature">Firma TI:</label>
+        <input
+          type="file"
+          id="tisignature"
+          name="tisignature"
+          accept="image/*"
+        /><br /><br />
 
         <h2>Especificaciones Técnicas del Equipo</h2>
         <label for="nombre-red">Nombre de Equipo en Red:</label>
@@ -210,7 +209,10 @@
 
         <label for="disco">Capacidad de Disco (GB):</label>
         <input type="text" id="disco" name="disco" /><br /><br />
+
+        <button type="button" onclick="fillPdf()">Generar PDF</button>
       </form>
     </main>
+    <script src="java.js"></script>
   </body>
 </html>
