@@ -3,216 +3,315 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Acta de Asignación/Devolución</title>
-    <!-- Link de conexión de estilos -->
+    <title>Formulario PDF</title>
+    <link rel="shortcut icon" href="img/Logo_Firma.png" type="image/x-icon">
+    <!-- Link de Estilos de CSS -->
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
   </head>
   <body>
-    <main class="main">
-      <form id="myForm">
-        <h2>Datos del Colaborador</h2>
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="name" name="nombre" /><br /><br />
-        <label for="identificacion">Identificación:</label>
-        <input type="checkbox" id="cc" name="identificacion" value="cc" />
-        <label for="cc">C.C</label>
-        <input type="checkbox" id="ti" name="identificacion" value="ti" />
-        <label for="ti">TI</label>
-        <input type="text" id="idNumber" name="numero" /><br /><br />
+    <form class="main" id="myForm">
+      <article class="nabvar">
+        <img src="img/Logo_Firma.png" alt="">
+        <h1>Acta de Tecnologia</h1>
+      </article>
+      <label for="name">Nombre:</label>
+      <input type="text" id="name" name="name" /><br /><br />
+      <label for="idNumber">Número de documento:</label>
+      <input type="text" id="idNumber" name="idNumber" /><br /><br />
+      <label for="cc">CC:</label>
+      <input type="checkbox" id="cc" name="cc" />
+      <label for="ti">TI:</label>
+      <input type="checkbox" id="ti" name="ti" /><br /><br />
+      <label for="equipmentType">Tipo de Equipo:</label>
+      <select id="equipmentType" name="equipmentType">
+        <option value="Monitor">Monitor</option>
+        <option value="Portátil" selected>Portátil</option>
+        <option value="Tablet">Tablet</option>
+        <option value="PC de Escritorio">PC de Escritorio</option>
+        <option value="Impresora Portátil">Impresora portatil</option></select
+      ><br /><br />
+      <label for="reason">Motivo:</label>
+      <select id="reason" name="reason">
+        <option value="Asignación">Asignación</option>
+        <option value="Devolución">Devolución</option></select
+      ><br /><br />
 
-        <h2>Características del Equipo</h2>
-        <label for="equipmentType">Tipo de Equipo:</label>
-        <select id="equipmentType" name="motivo">
-          <option value="monitor">Monitor</option>
-          <option value="portatil">Portátil</option>
-          <option value="tablet">Tablet</option>
-          <option value="cpu">PC de escritorio</option>
-          <option value="impresora">Impresora portatil</option></select
-        ><br /><br />
-        <label for="reason">Motivo:</label>
-        <select id="reason" name="motivo">
-          <option value="asignacion">Asignación</option>
-          <option value="devolucion">Devolución</option></select
-        ><br /><br />
+      <label for="processor">Procesador:</label>
+      <select id="processor" name="processor">
+        <option value="Intel Core I5">Intel Core I5</option>
+        <option value="Intel Core I7">Intel Core I7</option>
+        <option value="Apple M1">Apple M1</option>
+        <option value="No Aplica" selected>No Aplica</option></select
+      ><br /><br />
 
-        <label for="modelo">Modelo:</label>
-        <input type="text" id="modelo" name="modelo" /><br /><br />
+      <label for="ram">Memoria RAM:</label>
+      <select id="ram" name="ram">
+        <option value="8 gb">8 gb</option>
+        <option value="12 gb">12 gb</option>
+        <option value="16 gb">16 gb</option>
+        <option value="20 gb">20 gb</option>
+        <option value="32 gb">32 gb</option>
+        <option value="No Aplica" selected>No Aplica</option></select
+      ><br /><br />
 
-        <label for="numero-serie">Número de Serie:</label>
-        <input type="text" id="numero-serie" name="numero-serie" /><br /><br />
+      <label for="diskCapacity">Disco Duro:</label>
+      <select id="diskCapacity" name="diskCapacity">
+        <option value="256 gb">256 gb</option>
+        <option value="500 gb HDD">500 gb HDD</option>
+        <option value="500 gb SSD">500 gb SSD</option>
+        <option value="1 TB">1 TB</option>
+        <option value="No Aplica" selected>No Aplica</option></select
+      ><br /><br />
 
-        <label for="numero-placa">Número de Placa:</label>
-        <input type="text" id="numero-placa" name="numero-placa" /><br /><br />
+      <label for="brand">Marca:</label>
+      <select id="brand" name="brand">
+        <option value="Lenovo">Lenovo</option>
+        <option value="Samsung">Samsung</option>
+        <option value="HP" selected>HP</option>
+        <option value="Mac">Mac</option>
+        <option value="Dell">Dell</option>
+        <option value="Zebra">Zebra</option></select
+      ><br /><br />
 
-        <h2>Accesorios</h2>
-        <input type="checkbox" id="teclado" name="accesorios" value="teclado" />
-        <label for="teclado">Teclado</label><br />
+      <label for="modelo">Modelo:</label>
+      <input type="text" id="modelo" name="modelo" /><br /><br />
 
-        <input
-          type="checkbox"
-          id="cargador"
-          name="accesorios"
-          value="cargador"
-        />
-        <label for="cargador">Cargador</label><br />
+      <label for="serialNumber">Número de Serie:</label>
+      <input type="text" id="serialNumber" name="serialNumber" /><br /><br />
 
-        <input type="checkbox" id="guaya" name="accesorios" value="guaya" />
-        <label for="guaya">Guaya</label><br />
+      <label for="numero-placa">Número de Placa:</label>
+      <input type="text" id="plateNumber" name="numero-placa" /><br /><br />
 
-        <input type="checkbox" id="base" name="accesorios" value="base" />
-        <label for="base">Base</label><br />
+      <label for="networkName">Nombre en Red:</label>
+      <input type="text" id="networkName" name="networkName" /><br /><br />
 
-        <input
-          type="checkbox"
-          id="pantalla"
-          name="accesorios"
-          value="pantalla"
-        />
-        <label for="pantalla">Pantalla</label><br />
+      <label for="city">Ciudad:</label>
+      <select id="city" name="city">
+        <option value="Bogotá">Bogotá</option>
+        <option value="Medellín">Medellín</option>
+        <option value="Cali" selected>Cali</option>
+        <option value="Tulua">Tulua</option>
+        <option value="Bucaramanga">Bucaramanga</option>
+        <option value="Barranquilla">Barranquilla</option></select
+      ><br /><br />
 
-        <input type="checkbox" id="mouse" name="accesorios" value="mouse" />
-        <label for="mouse">Mouse</label><br />
+      <label for="date">Fecha:</label>
+      <input type="date" id="date" name="date" /><br /><br />
 
-        <input type="checkbox" id="morral" name="accesorios" value="morral" />
-        <label for="morral">Morral</label><br /><br />
+      <fieldset>
+        <legend>Equipos</legend>
+        <label
+          ><input
+            type="checkbox"
+            id="teclado"
+            name="equipment"
+            value="Teclado"
+          />
+          Teclado</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="cargador"
+            name="equipment"
+            value="Cargador"
+          />
+          Cargador</label
+        ><br />
+        <label
+          ><input type="checkbox" id="guaya" name="equipment" value="Guaya" />
+          Guaya</label
+        ><br />
+        <label
+          ><input type="checkbox" id="base" name="equipment" value="Base" />
+          Base</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="pantalla"
+            name="equipment"
+            value="Pantalla"
+          />
+          Pantalla</label
+        ><br />
+        <label
+          ><input type="checkbox" id="mouse" name="equipment" value="Mouse" />
+          Mouse</label
+        ><br />
+        <label
+          ><input type="checkbox" id="morral" name="equipment" value="Morral" />
+          Morral</label
+        ><br />
+      </fieldset>
 
-        <h2>Software Instalado</h2>
-        <input
-          type="checkbox"
-          id="windows10"
-          name="software"
-          value="windows10"
-        />
-        <label for="windows10">Windows 10</label><br />
+      <fieldset>
+        <legend>Software</legend>
+        <label
+          ><input
+            type="checkbox"
+            id="windows10"
+            name="software"
+            value="Windows 10"
+          />
+          Windows 10</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="windows11"
+            name="software"
+            value="Windows 11"
+            checked
+          />
+          Windows 11</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="office2016"
+            name="software"
+            value="Office 2016"
+          />
+          Office 2016</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="office365"
+            name="software"
+            value="Office 365"
+            checked
+          />
+          Office 365</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="antivirus"
+            name="software"
+            value="Antivirus"
+            checked
+          />
+          Antivirus</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="winrar"
+            name="software"
+            value="WinRAR"
+            checked
+          />
+          WinRAR</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="acrobatReader"
+            name="software"
+            value="Acrobat Reader"
+            checked
+          />
+          Acrobat Reader</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="sapGui"
+            name="software"
+            value="SAP GUI"
+            checked
+          />
+          SAP GUI</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="teamViewer"
+            name="software"
+            value="TeamViewer"
+            checked
+          />
+          TeamViewer</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="adobeCloud"
+            name="software"
+            value="Adobe Cloud"
+          />
+          Adobe Cloud</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="7zip"
+            name="software"
+            value="7-Zip"
+            checked
+          />
+          7-Zip</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="impresoras"
+            name="software"
+            value="Impresoras"
+            checked
+          />
+          Impresoras</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="vpn"
+            name="software"
+            value="VPN"
+            checked
+          />
+          VPN</label
+        ><br />
+        <label
+          ><input
+            type="checkbox"
+            id="oneDrive"
+            name="software"
+            value="OneDrive"
+            checked
+          />
+          OneDrive</label
+        ><br />
+      </fieldset>
 
-        <input
-          type="checkbox"
-          id="windows11"
-          name="software"
-          value="windows11"
-        />
-        <label for="windows11">Windows 11</label><br />
+      <h2>Observaciones</h2>
+      <textarea
+        id="observations"
+        name="observaciones"
+        rows="4"
+        cols="50"
+      ></textarea
+      ><br /><br />
 
-        <input
-          type="checkbox"
-          id="office2016"
-          name="software"
-          value="office2016"
-        />
-        <label for="office2016">Office 2016</label><br />
-
-        <input
-          type="checkbox"
-          id="office365"
-          name="software"
-          value="office365"
-        />
-        <label for="office365">Office 365</label><br />
-
-        <input
-          type="checkbox"
-          id="antivirus"
-          name="software"
-          value="antivirus"
-        />
-        <label for="antivirus">Antivirus</label><br />
-
-        <input type="checkbox" id="winrar" name="software" value="winrar" />
-        <label for="winrar">WinRAR</label><br />
-
-        <input type="checkbox" id="acrobat" name="software" value="acrobat" />
-        <label for="acrobat">Acrobat Reader</label><br />
-
-        <input type="checkbox" id="sap" name="software" value="sap" />
-        <label for="sap">SAP GUI</label><br />
-
-        <input
-          type="checkbox"
-          id="teamviewer"
-          name="software"
-          value="teamviewer"
-        />
-        <label for="teamviewer">TeamViewer</label><br />
-
-        <input type="checkbox" id="adobe" name="software" value="adobe" />
-        <label for="adobe">Adobe Cloud</label><br />
-
-        <input type="checkbox" id="7zip" name="software" value="7zip" />
-        <label for="7zip">7-Zip</label><br />
-
-        <input
-          type="checkbox"
-          id="impresoras"
-          name="software"
-          value="impresoras"
-        />
-        <label for="impresoras">Impresoras</label><br />
-
-        <input type="checkbox" id="vpn" name="software" value="vpn" />
-        <label for="vpn">VPN</label><br />
-
-        <input type="checkbox" id="onedrive" name="software" value="onedrive" />
-        <label for="onedrive">OneDrive</label><br /><br />
-
-        <h2>Observaciones</h2>
-        <textarea
-          id="observaciones"
-          name="observaciones"
-          rows="4"
-          cols="50"
-        ></textarea
-        ><br /><br />
-
-        <h2>Firma del Colaborador</h2>
-
-        <label for="signature">Firma:</label>
-        <input
-          type="file"
-          id="signature"
-          name="signature"
-          accept="image/*"
-        /><br /><br />
-        <h2>Firma del Área TI</h2>
-        <label for="tisignature">Firma TI:</label>
-        <input
-          type="file"
-          id="tisignature"
-          name="tisignature"
-          accept="image/*"
-        /><br /><br />
-
-        <h2>Especificaciones Técnicas del Equipo</h2>
-        <label for="nombre-red">Nombre de Equipo en Red:</label>
-        <input type="text" id="nombre-red" name="nombre-red" /><br /><br />
-
-        <label for="procesador">Procesador:</label>
-        <input type="text" id="procesador" name="procesador" /><br /><br />
-
-        <label for="serial">Serial:</label>
-        <input type="text" id="serial" name="serial" /><br /><br />
-
-        <label for="marca">Marca:</label>
-        <input type="text" id="marca" name="marca" /><br /><br />
-
-        <label for="modelo-equipo">Modelo:</label>
-        <input
-          type="text"
-          id="modelo-equipo"
-          name="modelo-equipo"
-        /><br /><br />
-
-        <label for="placa-equipo">Placa de Equipo:</label>
-        <input type="text" id="placa-equipo" name="placa-equipo" /><br /><br />
-
-        <label for="ram">Memoria RAM (GB):</label>
-        <input type="text" id="ram" name="ram" /><br /><br />
-
-        <label for="disco">Capacidad de Disco (GB):</label>
-        <input type="text" id="disco" name="disco" /><br /><br />
-
-        <button type="button" onclick="fillPdf()">Generar PDF</button>
-      </form>
-    </main>
+      <label for="signature">Firma:</label>
+      <input
+        type="file"
+        id="signature"
+        name="signature"
+        accept="image/*"
+      /><br /><br />
+      <label for="tisignature">Firma TI:</label>
+      <input
+        type="file"
+        id="tisignature"
+        name="tisignature"
+        accept="image/*"
+      /><br /><br />
+      <button type="button" onclick="fillPdf()">Generar PDF</button>
+    </form>
     <script src="java.js"></script>
   </body>
 </html>
