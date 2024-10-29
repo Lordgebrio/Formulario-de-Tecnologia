@@ -1,11 +1,9 @@
+// archivo.js
 async function fillPdf() {
   const { PDFDocument, rgb } = PDFLib
-
   // Obtén los datos del formulario
   const name = document.getElementById('name').value
   const idNumber = document.getElementById('idNumber').value
-  const cc = document.getElementById('cc').checked
-  const ti = document.getElementById('ti').checked
   const signatureFile = document.getElementById('signature').files[0]
   const tiSignatureFile = document.getElementById('tisignature').files[0]
   const modelo = document.getElementById('modelo').value
@@ -19,7 +17,6 @@ async function fillPdf() {
   const ram = document.getElementById('ram').value
   const diskCapacity = document.getElementById('diskCapacity').value
   const brand = document.getElementById('brand').value
-
   const city = document.getElementById('city').value
   const date = document.getElementById('date').value
 
@@ -34,66 +31,21 @@ async function fillPdf() {
   const form = pdfDoc.getForm()
 
   // Llena los campos de formulario
-
-  const cityField = form.getTextField('city')
-  cityField.setText(city)
-
-  const dateField = form.getTextField('date')
-  dateField.setText(date)
-
-  const processorField = form.getTextField('processor')
-  processorField.setText(processor)
-
-  const ramField = form.getTextField('ram')
-  ramField.setText(ram)
-
-  const diskCapacityField = form.getTextField('diskCapacity')
-  diskCapacityField.setText(diskCapacity)
-
-  const brandField = form.getTextField('brand')
-  brandField.setText(brand)
-
-  const equipmentTypeField = form.getTextField('equipmentType')
-  equipmentTypeField.setText(equipmentType)
-
-  const reasonField = form.getTextField('reason')
-  reasonField.setText(reason)
-
-  const serieField = form.getTextField('serialNumber')
-  serieField.setText(serie)
-
-  const networkNameField = form.getTextField('networkName')
-  networkNameField.setText(networkName)
-
-  const nameField = form.getTextField('name')
-  nameField.setText(name)
-
-  const placaField = form.getTextField('plateNumber')
-  placaField.setText(placa)
-
-  const observationsField = form.getTextField('observations')
-  observationsField.setText(observations)
-
-  const modeloField = form.getTextField('model')
-  modeloField.setText(modelo)
-
-  const idNumberField = form.getTextField('idNumber')
-  idNumberField.setText(idNumber)
-
-  const ccField = form.getCheckBox('cc')
-  if (cc) {
-    ccField.check()
-  } else {
-    ccField.uncheck()
-  }
-
-  const tiField = form.getCheckBox('ti')
-  if (ti) {
-    tiField.check()
-  } else {
-    tiField.uncheck()
-  }
-
+  form.getTextField('city').setText(city)
+  form.getTextField('date').setText(date)
+  form.getTextField('processor').setText(processor)
+  form.getTextField('ram').setText(ram)
+  form.getTextField('diskCapacity').setText(diskCapacity)
+  form.getTextField('brand').setText(brand)
+  form.getTextField('equipmentType').setText(equipmentType)
+  form.getTextField('reason').setText(reason)
+  form.getTextField('serialNumber').setText(serie)
+  form.getTextField('networkName').setText(networkName)
+  form.getTextField('name').setText(name)
+  form.getTextField('plateNumber').setText(placa)
+  form.getTextField('observations').setText(observations)
+  form.getTextField('model').setText(modelo)
+  form.getTextField('idNumber').setText(idNumber)
   const equipmentFields = [
     'teclado',
     'cargador',
@@ -112,7 +64,6 @@ async function fillPdf() {
     }
   })
 
-  // Llena los campos de software
   const softwareFields = [
     'windows10',
     'windows11',
@@ -138,7 +89,6 @@ async function fillPdf() {
     }
   })
 
-  // Agrega las firmas
   if (signatureFile) {
     if (signatureFile.type === 'image/png') {
       const signatureBytes = await signatureFile.arrayBuffer()
@@ -169,6 +119,9 @@ async function fillPdf() {
     }
   }
 
+  // Aplanar el formulario
+  form.flatten()
+
   // Guarda el PDF modificado
   const pdfBytes = await pdfDoc.save()
 
@@ -183,3 +136,6 @@ async function fillPdf() {
   alert('Formulario llenado satisfactoriamente y acta descargada.')
   location.reload()
 }
+
+// Asegúrate de que fillPdf esté disponible globalmente
+window.fillPdf = fillPdf

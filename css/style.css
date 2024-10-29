@@ -3,9 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
+  background: url(/img/Recetas_de_galletas.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   padding: 20px;
   display: flex;
@@ -14,11 +17,14 @@ body {
 }
 
 .main {
-  width: 50%;
-  margin: 0 auto;
+  max-width: 800px;
+  width: 90%;
+  margin: auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
-  padding: 30px;
+  padding: 40px;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .nabvar {
@@ -30,76 +36,119 @@ body {
 h1 {
   text-align: center;
   width: 100%;
-  font-size: 35px;
+  font-size: 32px;
 }
 
-h2 {
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-input[type='text'],
-input[type='file'],
-select,
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid red;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-/* 
-.container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: auto;
-}
-
-h1, h2 {
-    color: #333;
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 label {
-    display: block;
-    margin-top: 10px;
-    color: #555;
+  font-weight: 700;
+  display: block;
+  padding: 10px;
+  cursor: pointer;
 }
 
-input[type="text"], input[type="file"], select, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
+.tipo-identificacion {
+  display: flex;
+  align-items: center;
 }
 
-input[type="radio"], input[type="checkbox"] {
-    margin-right: 10px;
+input[type='text'],
+input[type='date'],
+select {
+  width: 100%;
+  background-color: #fff;
+  border: 3px solid transparent;
+  border-radius: 3px;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 40px 0 10px;
+  transition: 0.3 ease all;
 }
 
-.radio-group, .checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+input[type='text']:focus,
+select:focus,
+textarea:focus {
+  border: 3px solid red;
+  outline: none;
+  box-shadow: 3px 0 30px rgba(163, 163, 163, 0.4);
+}
+textarea,
+fieldset,
+.enviar,
+.firma {
+  grid-column: span 2;
 }
 
-input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 20px;
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid red;
+  border-radius: 5px;
 }
 
-input[type="submit"]:hover {
-    background-color: #45a049;
-} */
+input[type="checkbox"] {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+}
+
+input[type="checkbox"]:checked {
+  background-color: rgb(255, 97, 97);
+}
+
+textarea {
+  border: 3px solid transparent;
+  height: 100px;
+  resize: inherit;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+fieldset legend {
+  text-align: center;
+  font-size: 20px;
+  padding: 0 20px;
+}
+
+fieldset label {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.enviar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+button {
+  height: 45px;
+  line-height: 45px;
+  width: 30%;
+  background-color: black;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.1 ease all;
+}
+
+button:hover {
+  box-shadow: 3px 0 30px rgba(163, 163, 163, 0.1);
+}
+
+h2 {
+  font-size: 30px;
+  margin: 10px 0;
+}
